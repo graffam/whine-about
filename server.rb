@@ -23,7 +23,7 @@ get '/new' do
 end
 
 post '/whine' do
-  if !params["title"] == "" && !params["whine"] == ""
+  if params["title"] != "" && params["whine"] != ""
     @complaint = "#{params["title"]},#{params["whine"]},1\n"
     File.open("whines.csv","a") do |f|
       f.write(@complaint)
