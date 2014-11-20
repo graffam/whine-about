@@ -14,3 +14,14 @@ get '/' do
 
   erb :index
 end
+
+get '/new' do
+  @file = open_csv
+
+  erb :new
+end
+
+post '/whine' do
+  binding.pry
+  erb :index
+end
