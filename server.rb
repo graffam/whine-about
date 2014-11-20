@@ -8,6 +8,7 @@ def open_csv
 end
 
 
+
 get '/' do
 
   @file = open_csv
@@ -22,6 +23,14 @@ get '/new' do
 end
 
 post '/whine' do
-  binding.pry
-  erb :index
+  if !params["title"] == "" && !params["whine"] == ""
+    @complaint = "#{params["title"]},#{params["whine"]},1\n"
+    File.open("whines.csv","a") do |f|
+      f.write(@complaint)
+    end
+    redirect '/'
+  else
+    @message = "You need to fill both fields"
+    erb :new
+  end
 end
