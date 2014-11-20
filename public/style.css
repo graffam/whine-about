@@ -1,0 +1,13 @@
+body {
+  background-color: Beige;
+  margin:0;
+}
+
+.center-whine {
+  background-color: LightBlue;
+  text-align: center;
+}
+
+.form_whine {
+  display: block;
+}
